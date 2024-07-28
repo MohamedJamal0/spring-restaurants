@@ -33,12 +33,11 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 
-    @Column(name= "payment_time")
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @Column(name= "payment_time")
     private Instant paymentTime;
 
 }

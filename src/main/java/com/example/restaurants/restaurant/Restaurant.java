@@ -1,6 +1,8 @@
 package com.example.restaurants.restaurant;
 
 import com.example.restaurants.menu.Menu;
+import com.example.restaurants.order.Order;
+import com.example.restaurants.restaurantOnwer.RestaurantOwner;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "restaurants")
@@ -50,5 +53,14 @@ public class Restaurant {
     @OneToOne(mappedBy = "restaurant" ,cascade = CascadeType.ALL)
     @JsonManagedReference
     private Menu menu;
+
+    @OneToMany(mappedBy = "restaurant" , cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Order> orders;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurant_owner_id")
+    private RestaurantOwner restaurantOwner;
 
 }

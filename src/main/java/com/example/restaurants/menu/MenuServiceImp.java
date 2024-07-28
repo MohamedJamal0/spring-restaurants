@@ -42,4 +42,9 @@ public class MenuServiceImp implements MenuService {
                 .orElseThrow();
 
     }
+
+    @Override
+    public MenuItem findMenuItemById(Long id) {
+        return menuItemRepository.findById(id).orElseThrow();
+    }
 }

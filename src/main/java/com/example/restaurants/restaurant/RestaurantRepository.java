@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant , Long> {
 
-
     @EntityGraph(attributePaths = "menu.menuItems")
     Optional<Restaurant> findById(Long id);
 }

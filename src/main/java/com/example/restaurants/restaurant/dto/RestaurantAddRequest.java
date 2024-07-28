@@ -18,6 +18,9 @@ public record RestaurantAddRequest(
         @NotBlank(message = "Status is mandatory")
         String status,
 
+        @NotNull(message = "restaurant Owner id  is mandatory")
+        Long restaurantOwnerId,
+
         @NotNull(message = "Minimum order is mandatory")
         @DecimalMin(value = "0.00", inclusive = false, message = "Minimum order must be greater than 0")
         BigDecimal minimumOrder,
@@ -31,5 +34,7 @@ public record RestaurantAddRequest(
 
         @NotNull(message = "Closing time is mandatory")
         Instant closingTime
+
+
 ) {
 }

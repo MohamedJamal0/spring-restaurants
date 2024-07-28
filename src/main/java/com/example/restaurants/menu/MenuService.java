@@ -10,6 +10,8 @@ public interface MenuService {
     public void removeItemFromMenu(Long id);
     public MenuDto getMenuByRestaurantId(Long id);
 
+    public MenuItem findMenuItemById(Long id);
+
 }
 
 
